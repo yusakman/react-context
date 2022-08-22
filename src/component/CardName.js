@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
-import { MainContext } from "../context/MainContext";
+// import { MainContext } from "../context/MainContext";
+import { MainContextNew } from "../context/MainContextNew";
 import { LayoutContext } from "../context/LayoutContextNew";
 
 const CardName = () => {
-  const context = useContext(MainContext);
+  // const {name} = useContext(MainContext);
+  const {name} = useContext(MainContextNew);
   const {nightmode, day, night} = useContext(LayoutContext);
 
     const mode = nightmode ? day : night;
 
   return (
     <div>
-      <h1 style={{color: mode.color}}>{context.data.name}</h1>
+      <h1 style={{color: mode.color}}>{name}</h1>
     </div>
   );
 };

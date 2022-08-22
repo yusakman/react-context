@@ -5,17 +5,18 @@ export const MainContext = createContext({
 });
 
 class MainContextProvider extends Component {
-
   state = {
-    name: 'Lucy Chen',
-    ava: 'https://reqres.in/img/faces/7-image.jpg'
+    name: "Lucy Chen",
+    ava: "https://reqres.in/img/faces/7-image.jpg",
   };
 
   render() {
     return (
-      <MainContext.Provider value={{...this.state}}>{this.props.children}</MainContext.Provider>
+      <MainContext.Provider value={{ ...this.state }}>
+        {this.props.children}
+      </MainContext.Provider>
     );
   }
 }
 
-export default MainContextProvider
+export default MainContextProvider;
