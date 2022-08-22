@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Card from './component/Card';
+import LayoutContextProvider from './context/LayoutContextNew';
+import { MainContext } from './context/MainContext'
 
 function App() {
+  const [data, setData] = useState({
+    name: 'Lucy Chen',
+    ava: 'https://reqres.in/img/faces/7-image.jpg'
+  })
+
+  const mainContextValue = {
+    data
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LayoutContextProvider>
+        <MainContext.Provider value={mainContextValue}>
+          <Card />
+        </MainContext.Provider>
+      </LayoutContextProvider>
+      
     </div>
   );
 }
